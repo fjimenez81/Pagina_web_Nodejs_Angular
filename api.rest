@@ -1,0 +1,55 @@
+###
+GET http://localhost:4000/api/users
+
+###
+POST http://localhost:4000/api/users
+Content-Type: application/json
+
+{
+    "name": "Fenando",
+    "surname": "Jimenez Cuerva",
+    "address": "Calle Almadraz, 10",
+    "city": "Gerindote",
+    "email": "fernan@hot.com",
+    "password": "1234"
+}
+
+###
+POST http://localhost:4000/api/users/register
+Content-Type: application/json
+
+{
+    "name": "tonete",
+    "surname": "Jimenez Cuerva",
+    "address": "Calle pulpo, 10",
+    "city": "Gerindote",
+    "email": "tonenete@hot.com",
+    "password": "adios"
+}
+
+###
+POST http://localhost:4000/api/users/login
+Content-Type: application/json
+
+{
+    "name": "tonete",
+    "surname": "Jimenez Cuerva",
+    "address": "Calle pulpo, 10",
+    "city": "Gerindote",
+    "email": "tonenete@hot.com",
+    "password": "1234"
+}
+
+###
+GET http://localhost:4000/api/users/5fc4d6f57ade3e2b8a7dc9f9
+
+###
+PUT http://localhost:4000/api/users/5fc4d80b9491d22bd879196c
+Content-Type: application/json
+
+{
+    "address": "Calle Picasso, 3"
+}
+
+###
+DELETE http://localhost:4000/api/users/5fc75e3e8118270ee1d7e7e4

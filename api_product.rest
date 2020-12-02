@@ -1,0 +1,12 @@
+###
+GET http://localhost:4000/api/products
+
+###
+POST http://localhost:4000/api/products
+Content-Type: application/json
+
+{
+    "name": "Exodo",
+    "price": 20,
+    "imgURL":"https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg?cs=srgb&dl=pexels-leo-cardelli-1236701.jpg&fm=jpg"
+}

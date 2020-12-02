@@ -1,0 +1,32 @@
+.container{
+    width: 70%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 100px 0;
+    height: auto;
+}
+
+.ctmcard{
+    width: 80%;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ctm_img{
+    width: 680px;
+    height: 480px;
+}
+
+.card{
+    width: 70%;
+    height: 90%;
+    padding: 10px 10px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    position: relative;
+    text-align: center;
+    margin-bottom: 60px;
+    box-shadow: 0 0 6px var(--color_shadow);
+}
