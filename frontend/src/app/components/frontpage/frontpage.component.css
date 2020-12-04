@@ -8,3 +8,21 @@
     margin-bottom: 60px;
     box-shadow: 0 0 6px var(--color_shadow);
 }
+
+/* .mockup{
+    object-fit: cover;
+    width: 78%;
+    max-height: 90vh;
+} */
+
+.ctmcard{
+    width: 100%;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ctm_img{
+    width: 1080px;
+    height: 480px;
+}

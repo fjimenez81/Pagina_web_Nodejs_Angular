@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
-import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'app-frontpage',
-  templateUrl: './frontpage.component.html',
-  styleUrls: ['./frontpage.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class FrontpageComponent implements OnInit {
+export class AdminComponent implements OnInit {
 
-  constructor(public productService: ProductsService) { }
+  constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
     this.show_products()

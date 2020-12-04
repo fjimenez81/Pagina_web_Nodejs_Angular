@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from "../../services/users.service";
 import { NgForm } from "@angular/forms";
+import { Router} from '@angular/router'
+
 
 @Component({
   selector: 'app-register',
@@ -9,10 +11,11 @@ import { NgForm } from "@angular/forms";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public userService: UsersService) { }
+  constructor(public userService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getUsers()
+    
+    //this.getUsers()
   }
 
 
@@ -26,9 +29,13 @@ export class RegisterComponent implements OnInit {
   addUser(form: NgForm) {
     this.userService.create_User(form.value).subscribe(
       res => {
-        console.log(res),
-        form.reset()},
+        console.log(res)
+        localStorage.setItem('token', res.token)
+        form.reset()
+        this.router.navigate([''])
+      },
       err => console.error(err)
     )
   }
+
 }

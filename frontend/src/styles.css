@@ -84,7 +84,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0;
+    /* padding: 0; */
 }
 
 .mockup{
@@ -94,7 +94,7 @@ body{
 }
 
 .hero__textos{
-    width: 48%;
+    width: 68%;
 }
 
 .title{
@@ -154,9 +154,9 @@ body{
 
 }
 
-.footer{
+/* .footer{
     background: #fafafa;
-}
+} */
 
 .contact{
     display: flex;

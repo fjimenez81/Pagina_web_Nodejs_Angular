@@ -2,15 +2,17 @@
     <div class="row">
       <div class="col lg-6">
         <div class="card">
-            <form>
+            <form #formLogin="ngForm" (ngSubmit)="loginUser(formLogin)">
                 <div class="form-group">
-                  <label class="ctmlabel" for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <label class="ctmlabel" for="InputEmail">Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                          placeholder="Enter email" name="email" required [(ngModel)]="userLogin.selectedUser.email">
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
-                  <label class="ctmlabel" for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <label class="ctmlabel" for="InputPassword">Password</label>
+                  <input type="password" class="form-control" id="password"
+                          placeholder="Password" name="password" required [(ngModel)]="userLogin.selectedUser.password">
                 </div>
                 <div class="form-check p-4">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">

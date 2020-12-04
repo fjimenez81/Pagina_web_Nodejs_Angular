@@ -9,7 +9,7 @@ export const createProduct = async (req, res) => {
 
 export const getProducts = async (req, res) => {
     const products = await Product.find()
-    res.json(products)
+    return res.json(products)
 }
 
 export const getProductById = async (req, res) => {
@@ -19,7 +19,7 @@ export const getProductById = async (req, res) => {
 }
 
 export const updateProductById = async (req, res) => {
-    const updatedProduct = await Product.findByIdAndUpdate(req.params.productId, req.body,{ new: true})
+    const updatedProduct = await Product.findByIdAndUpdate(req.params.productId, req.body,{ new: true })
     res.status(200).json(updatedProduct)
 }
 
