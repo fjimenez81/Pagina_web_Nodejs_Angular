@@ -10,10 +10,14 @@ import { ContactComponent } from './components/contact/contact.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AdminComponent } from './components/admin/admin.component';
+
 
 
 import { AuthGuard } from "./auth.guard";
+import { NgFallimgModule } from 'ng-fallimg';
+import { NgxPaginationModule } from 'ngx-pagination'
+import { AddCanvaComponent } from './components/add-canva/add-canva.component';
+import { UpdateCanvaComponent } from './components/update-canva/update-canva.component'
 
 
 
@@ -22,13 +26,18 @@ import { AuthGuard } from "./auth.guard";
   declarations: [
     AppComponent,
     routingComponents,
-    AdminComponent
+    AddCanvaComponent,
+    UpdateCanvaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgFallimgModule.forRoot({
+      default: 'http://superprosamui.com/2016/wp-content/plugins/ap_background/images/default/default_large.png',
+    }),
+    NgxPaginationModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

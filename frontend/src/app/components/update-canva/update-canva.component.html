@@ -1,0 +1,28 @@
+<!-- <ng-container *ngFor="let canva of productService.products | paginate: { itemsPerPage: 4, currentPage: p }">
+    <div class="row">
+        
+    </div>
+</ng-container> -->
+<div class="col" *ngFor="let canva of productService.products | paginate: { itemsPerPage: 4, currentPage: p }">
+    <div class="card text-center">
+        <div class="card-header d-flex justify-content-between alingn-items-center">
+            {{canva.name}}
+            <button class="btn " (click)="delete_Canva(canva._id)">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <img [src]="canva.imgURL" class="card-img-top">
+        <div class="card-body">
+            <p>{{canva.name}}</p>
+            <p>{{canva.price}} Euros</p>
+            <a [routerLink]="['/add-canva/edit', canva._id]" class="btn">
+                Update
+            </a>
+        </div>
+    </div>  
+</div>
+<div class="container text-center" ng-non-bindable>
+    <div class="col">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

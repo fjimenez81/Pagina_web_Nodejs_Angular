@@ -1,0 +1,26 @@
+.card{
+    
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    color: #F4BD76;
+    
+}
+
+.btn{
+    background-color: #F4BD76;
+    color: black;
+}
+
+.ctm_img{
+    width: 540px;
+    height: 360px;
+}
+
+.card.foto{
+    height: 100%;
+    width: 100%;
+}
+
+.ctm-body {
+    height: 30%;
+    width: 30%;
+}

@@ -5,7 +5,8 @@ import { FrontpageComponent } from './components/frontpage/frontpage.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
-import { AdminComponent } from "./components/admin/admin.component";
+import { AddCanvaComponent } from "./components/add-canva/add-canva.component"
+import { UpdateCanvaComponent } from "./components/update-canva/update-canva.component";
 
 import { AuthGuard } from "./auth.guard";
 
@@ -15,7 +16,9 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'gallery', component: GalleryComponent},
-  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}
+  {path: 'add-canva', component: AddCanvaComponent, canActivate: [AuthGuard]},
+  {path: 'add-canva/edit/:_id', component: AddCanvaComponent, canActivate: [AuthGuard]},
+  {path: 'update-canva', component: UpdateCanvaComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -28,4 +31,5 @@ export const routingComponents = [FrontpageComponent,
                                   RegisterComponent,
                                   ContactComponent,
                                   GalleryComponent,
-                                  AdminComponent]
+                                  AddCanvaComponent,
+                                  UpdateCanvaComponent]

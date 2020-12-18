@@ -30,3 +30,8 @@
     margin-bottom: 60px;
     box-shadow: 0 0 6px var(--color_shadow);
 }
+
+.btn{
+    background-color: #F4BD76;
+    color: black;
+}

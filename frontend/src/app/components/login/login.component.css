@@ -28,3 +28,10 @@
     background-color: #F4BD76;
     color: black;
 }
+
+.form-control.account-user{
+    border: 0px solid #30353B !important;
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    color: #F4BD76;
+    margin-top: 20px;
+}

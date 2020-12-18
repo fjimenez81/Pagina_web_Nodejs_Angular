@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminComponent } from './admin.component';
+import { UpdateCanvaComponent } from './update-canva.component';
 
-describe('AdminComponent', () => {
-  let component: AdminComponent;
-  let fixture: ComponentFixture<AdminComponent>;
+describe('UpdateCanvaComponent', () => {
+  let component: UpdateCanvaComponent;
+  let fixture: ComponentFixture<UpdateCanvaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
+      declarations: [ UpdateCanvaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminComponent);
+    fixture = TestBed.createComponent(UpdateCanvaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

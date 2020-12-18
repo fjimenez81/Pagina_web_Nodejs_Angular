@@ -1,0 +1,25 @@
+.card{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    color: #F4BD76;
+    
+}
+
+.btn{
+    background-color: #F4BD76;
+    color: black;
+}
+
+.ctm_img{
+    height: 200px;
+    width: 510px;
+    margin-left: 20px;
+}
+
+.card.foto{
+    height: 100%;
+    width: 100%;
+}

@@ -6,9 +6,9 @@ import { authJwt } from '../middlewares'
 const router = Router()
 
 router.get('/', ProductsCtrl.getProducts)
-router.post('/', [authJwt.verifyToken, authJwt.isAdmin], ProductsCtrl.createProduct)
+router.post('/', ProductsCtrl.createProduct)
 router.get('/:productId', ProductsCtrl.getProductById)
-router.put('/:productId', [authJwt.verifyToken, authJwt.isAdmin], ProductsCtrl.updateProductById)
-router.delete('/:productId', [authJwt.verifyToken, authJwt.isAdmin], ProductsCtrl.deleteProductById)
+router.put('/:productId', ProductsCtrl.updateProductById)
+router.delete('/:productId', ProductsCtrl.deleteProductById)
 
 export default router

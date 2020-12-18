@@ -2,6 +2,7 @@
     <div class="row">
       <div class="col lg-6">
         <div class="card">
+          <div class="h3 ctmlabel mb-4">LOGIN</div>
             <form #formLogin="ngForm" (ngSubmit)="loginUser(formLogin)">
                 <div class="form-group">
                   <label class="ctmlabel" for="InputEmail">Email address</label>
@@ -14,11 +15,12 @@
                   <input type="password" class="form-control" id="password"
                           placeholder="Password" name="password" required [(ngModel)]="userLogin.selectedUser.password">
                 </div>
-                <div class="form-check p-4">
+                <!-- <div class="form-check p-4">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label ctmlabel" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn">Submit</button>
+                </div> -->
+                <button type="submit" class="btn p-3">Submit</button>
+                <a routerLink="/register" class="form-control account-user">Does not you have account?</a>
             </form>
         </div>
       </div>

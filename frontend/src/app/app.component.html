@@ -10,12 +10,13 @@
                 <a class="p-5" style="color: #fff;" routerLink="">Home <span class="sr-only">(current)</span></a>
                 <a class="p-5" style="color: #fff;" routerLink="/gallery">Gallery</a>
                 <ng-container *ngIf="!userService.status_login(); else loggedIn">
-                    <a class="p-5" style="color: #fff;" routerLink="/login">Log in</a>
+                    <a class="p-5" style="color: #fff;" routerLink="/login">LogIn</a>
                     <a class="p-5" style="color: #fff;" routerLink="/register">Register</a>
                 </ng-container>
                 <ng-template #loggedIn>
                     <ng-container *ngIf="userService.is_admin()">
-                            <a class="p-5" style="cursor: pointer;color: #fff;" routerLink="/admin">Admin</a>
+                            <a class="p-5" style="cursor: pointer;color: #fff;" routerLink="/add-canva">Add</a>
+                            <a class="p-5" style="cursor: pointer;color: #fff;" routerLink="/update-canva">Update</a>
                     </ng-container>
                     <a class="p-5" style="cursor: pointer;color: #fff;" (click)="userService.log_out()">Logout</a>   
                 </ng-template>
