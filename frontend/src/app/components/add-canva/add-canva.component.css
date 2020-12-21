@@ -24,3 +24,17 @@
     height: 30%;
     width: 30%;
 }
+
+.cmtcard{
+    /* padding: 20px; */
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    color: #F4BD76;
+}
+
+.cmtcard_v2{
+    padding: 20px;
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    color: #F4BD76;
+    width: 100%;
+    height: 76%;
+}

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { User } from "../models/user";
 import { Router } from "@angular/router";
 import jwt_decode from 'jwt-decode'
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UsersService {
 
   URL_API = 'http://localhost:4000/api/users'
 
-  users: User[];
+  users: User[] = []
   selectedUser: User
 
   constructor(private http: HttpClient, private router: Router) { this.selectedUser = new User()}
@@ -22,6 +23,10 @@ export class UsersService {
 
   create_User(user: User){
     return this.http.post<any>(this.URL_API + '/register', user)
+  }
+
+  get_UserById(id: String) {
+    return this.http.get<User>(this.URL_API + '/' + id)
   }
 
   log_in(user: User){
@@ -50,6 +55,16 @@ export class UsersService {
       return true
     }
     return false
+  }
+
+  get_User_id(): string {
+    const token = this.decode_token(this.get_token())
+    let aux: string = ""
+   
+    for (let i = 0; i < token['id'].length; i++) {
+        aux += token['id'][i]
+    }
+    return aux
   }
 
 }

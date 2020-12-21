@@ -31,7 +31,19 @@
     box-shadow: 0 0 6px var(--color_shadow);
 }
 
+
+.cmtcard{
+    padding: 20px;
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    color: #F4BD76;
+}
+
 .btn{
     background-color: #F4BD76;
     color: black;
+}
+
+.btn.ctm_btn{
+    float: right;
+    margin-bottom: 10px;
 }

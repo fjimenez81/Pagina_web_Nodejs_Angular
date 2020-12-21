@@ -1,6 +1,8 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
 import { Router} from '@angular/router'
+
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-update-canva',
@@ -8,8 +10,6 @@ import { Router} from '@angular/router'
   styleUrls: ['./update-canva.component.css']
 })
 export class UpdateCanvaComponent implements OnInit {
-
-  @HostBinding('class') class = 'row'
 
   p: number = 1
 
@@ -30,11 +30,44 @@ export class UpdateCanvaComponent implements OnInit {
   }
 
   delete_Canva(_id: String) {
-    this.productService.delete_Product(_id).subscribe(
-    res => {
-      console.log("deleted!")
-      this.show_products()
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        this.productService.delete_Product(_id).subscribe(
+          res => {
+            console.log("deleted!")
+            this.show_products()
+            }
+          )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled'
+        )
       }
-    )
+    })
+    
   }
 }

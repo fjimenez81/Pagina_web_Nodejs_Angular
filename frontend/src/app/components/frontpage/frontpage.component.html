@@ -1,43 +1,50 @@
-<!-- <router-outlet> -->
-    <header class="hero">
-        <section class="container hero__main">
-            <div class="hero__textos">
-                <h1 class="title">The best <span class="mod-gold">designs.</span></h1>
-                <p class="copy">The art at home</p>
-                <a routerLink="/gallery" class="cta">Gallery</a>
-            </div>
-            <!-- <img src="assets/img/canva1.jpg" class="mockup"> -->
-            <div class="container">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" *ngFor="let i of productService.products;let index = index"
-                            [attr.data-slide-to]="index"></li>
-                    </ol>
-                    <div class="card ctmcard">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active"
-                                *ngFor="let canva of productService.products;let index = index;let isFirst = first"
-                                [ngClass]="{active:isFirst}">
-                                <img class="d-block w-100 ctm_img" [src]="canva.imgURL" alt="First slide">
-                                <div class="carousel-caption">
-                                    <h3>{{canva.name}}</h3>
-                                    <h6>{{canva.price}} Euros</h6>
-                                </div>
+<header class="hero">
+    <section class="container hero__main">
+        <div class="hero__textos" >
+            <h1 class="title" style="font-size: 56px;">The best <span class="mod-gold">designs.</span></h1>
+            <p class="copy">The art at home</p>
+            <a routerLink="/gallery" style="font-size: 24px;" class="cta">Gallery</a>
+        </div>
+        <div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" *ngFor="let i of productService.products;let index = index"
+                        [attr.data-slide-to]="index"></li>
+                </ol>
+                <div class="card ctmcard">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active"
+                            *ngFor="let canva of productService.products;let index = index;let isFirst = first"
+                            [ngClass]="{active:isFirst}">
+                            <ng-container *ngIf="userService.status_login(); else login">
+                                <a [routerLink]="['/payload/', canva._id]">
+                                    <img class="d-block w-100 ctm_img" [src]="canva.imgURL" alt="First slide">
+                                </a>
+                            </ng-container>
+                            <ng-template #login>
+                                <a routerLink="/login">
+                                    <img class="d-block w-100 ctm_img" [src]="canva.imgURL" alt="First slide">
+                                </a>
+                            </ng-template>
+                            <div class="carousel-caption">
+                                <h3 style="font-size: 18px;">{{canva.name}}</h3>
+                                <h6 style="font-size: 15px;">{{canva.price}} Euros</h6>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
-        </section>
-    </header>
+        </div>
+    </section>
+</header>
     <main>
         <section class="demos">
             <div class="container">

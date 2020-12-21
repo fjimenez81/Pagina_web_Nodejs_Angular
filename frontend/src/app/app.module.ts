@@ -17,9 +17,14 @@ import { AuthGuard } from "./auth.guard";
 import { NgFallimgModule } from 'ng-fallimg';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { AddCanvaComponent } from './components/add-canva/add-canva.component';
-import { UpdateCanvaComponent } from './components/update-canva/update-canva.component'
+import { UpdateCanvaComponent } from './components/update-canva/update-canva.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-
+import { MatCardModule } from "@angular/material/card";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { PayloadComponent } from './components/payload/payload.component';
 
 
 @NgModule({
@@ -27,7 +32,8 @@ import { UpdateCanvaComponent } from './components/update-canva/update-canva.com
     AppComponent,
     routingComponents,
     AddCanvaComponent,
-    UpdateCanvaComponent
+    UpdateCanvaComponent,
+    PayloadComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +41,14 @@ import { UpdateCanvaComponent } from './components/update-canva/update-canva.com
     HttpClientModule,
     FormsModule,
     NgFallimgModule.forRoot({
-      default: 'http://superprosamui.com/2016/wp-content/plugins/ap_background/images/default/default_large.png',
+      default: 'http://superprosamui.com/2016/wp-content/plugins/ap_background/images/default/default_1.png',
     }),
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatButtonModule,
+    FlexLayoutModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

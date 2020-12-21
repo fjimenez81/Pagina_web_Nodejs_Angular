@@ -52,7 +52,7 @@ body{
 
 .navbar-collapse{
     height: auto;
-    background: #30353B44;
+    background: linear-gradient(180deg, #30353B 0%, #1A1B1F 100%);
 }
 
 .nav__container{
@@ -300,3 +300,5 @@ body{
         margin-bottom: 15px;
     }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

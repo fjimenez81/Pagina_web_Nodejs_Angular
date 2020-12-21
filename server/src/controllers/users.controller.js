@@ -59,7 +59,7 @@ export const createUser = async (req, res) => {
 }
 
 export const getOnly_User = async (req, res) => {
-    const user = await User.findById(req.params.id)
+    const user = await User.findOne(req.params.name)
     res.send(user)
 }
 

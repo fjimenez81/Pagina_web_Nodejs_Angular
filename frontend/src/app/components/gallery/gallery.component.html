@@ -1,30 +1,36 @@
-<div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" *ngFor="let i of productService.products;let index = index"
-                [attr.data-slide-to]="index"></li>
-        </ol>
-        <div class="card ctmcard">
-            <div class="carousel-inner" >
-                <div class="carousel-item active"
-                    *ngFor="let canva of productService.products;let index = index;let isFirst = first"
-                    [ngClass]="{active:isFirst}">
-                    <img class="d-block w-100 ctm_img" [src]="canva.imgURL" alt="First slide">
-                    <div class="carousel-caption">
-                        <h3>{{canva.name}}</h3>
-                        <h6>{{canva.price}} Euros</h6>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+<div class="text-center p-4" style="margin-top: 20px;">
+    <div class="col">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+<div class="content p-2" fxLayout="row wrap" >
+    <div fxFlex="25%" class="p-1" *ngFor="let canva of productService.products | paginate: { itemsPerPage: 8, currentPage: p }">
+        <mat-card class="mat-elevation-z4 cmtcard">
+        <mat-card-header class="d-flex justify-content-between alingn-items-center">
+            <mat-card-title>
+                {{canva.name}}      
+            </mat-card-title>    
+        </mat-card-header>
+        <img mat-card-image  [src]="canva.imgURL"/>
+        <div class="card-body">
+            <p>{{canva.price}} Euros</p>
+            <ng-container *ngIf="userService.status_login(); else login">
+                <a [routerLink]="['/payload/', canva._id]" class="btn">
+                    Comprar
+                </a>
+            </ng-container>
+            <ng-template #login>
+                <a routerLink="/login" class="btn">
+                    Comprar
+                </a>
+            </ng-template>
+        </div> 
+        </mat-card>
+    </div>
+</div>
+<div class="text-center p-4" style="margin-bottom: 20px;">
+    <div class="col">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>
 

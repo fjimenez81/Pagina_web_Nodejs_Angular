@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
+import { UsersService } from "../../services/users.service";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -9,7 +10,8 @@ import { NgForm } from "@angular/forms";
 })
 export class FrontpageComponent implements OnInit {
 
-  constructor(public productService: ProductsService) { }
+  constructor(public productService: ProductsService,
+              public userService: UsersService) { }
 
   ngOnInit(): void {
     this.show_products()

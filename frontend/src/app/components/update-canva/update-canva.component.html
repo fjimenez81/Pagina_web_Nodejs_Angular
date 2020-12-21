@@ -1,27 +1,30 @@
-<!-- <ng-container *ngFor="let canva of productService.products | paginate: { itemsPerPage: 4, currentPage: p }">
-    <div class="row">
-        
+<div class="text-center p-4" style="margin-top: 20px;">
+    <div class="col">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
-</ng-container> -->
-<div class="col" *ngFor="let canva of productService.products | paginate: { itemsPerPage: 4, currentPage: p }">
-    <div class="card text-center">
-        <div class="card-header d-flex justify-content-between alingn-items-center">
-            {{canva.name}}
-            <button class="btn " (click)="delete_Canva(canva._id)">
+</div>
+<div class="content p-2" fxLayout="row wrap" >
+    <div fxFlex="25%" class="p-1" *ngFor="let canva of productService.products | paginate: { itemsPerPage: 8, currentPage: p }">
+        <mat-card class="mat-elevation-z4 cmtcard">
+        <mat-card-header class="d-flex justify-content-between alingn-items-center">
+            <mat-card-title>
+                {{canva.name}}      
+            </mat-card-title> 
+            <button class="btn ctm_btn" (click)="delete_Canva(canva._id)">
                 <i class="far fa-trash-alt"></i>
-            </button>
-        </div>
-        <img [src]="canva.imgURL" class="card-img-top">
+            </button>   
+        </mat-card-header>
+        <img mat-card-image  [src]="canva.imgURL"/>
         <div class="card-body">
-            <p>{{canva.name}}</p>
             <p>{{canva.price}} Euros</p>
             <a [routerLink]="['/add-canva/edit', canva._id]" class="btn">
                 Update
             </a>
-        </div>
-    </div>  
+        </div> 
+        </mat-card>
+    </div>
 </div>
-<div class="container text-center" ng-non-bindable>
+<div class="text-center p-4" style="margin-bottom: 20px;">
     <div class="col">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>

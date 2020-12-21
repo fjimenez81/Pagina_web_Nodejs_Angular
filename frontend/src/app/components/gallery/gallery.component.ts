@@ -10,6 +10,9 @@ import { NgForm } from "@angular/forms";
 })
 export class GalleryComponent implements OnInit {
 
+
+  p: number = 1
+  
   constructor(public productService: ProductsService,
               public userService: UsersService) { }
 
