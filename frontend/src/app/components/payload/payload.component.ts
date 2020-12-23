@@ -21,7 +21,7 @@ export class PayloadComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.show_Users() 
+    this.show_Users()
     this.routing_canvas()
   }
 
@@ -31,12 +31,10 @@ export class PayloadComponent implements OnInit {
         this.userService.users = res
       }
     )
-    this.userService.get_User_id()
     for (let i = 0; i < this.userService.users.length; i++) {
       if (this.userService.users[i]._id == this.userService.get_User_id()) {
         this.data = this.userService.users[i]
-      }
-        
+      } 
     }
   }
 

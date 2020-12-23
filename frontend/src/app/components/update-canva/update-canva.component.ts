@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
+import { Product } from "../../models/products";
 import { Router} from '@angular/router'
 
 import Swal from 'sweetalert2'
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2'
 export class UpdateCanvaComponent implements OnInit {
 
   p: number = 1
+  list: Product[] = []
 
   constructor(public productService: ProductsService,
               private router: Router

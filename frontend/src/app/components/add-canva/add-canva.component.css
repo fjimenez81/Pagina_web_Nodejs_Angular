@@ -2,6 +2,7 @@
     
     background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
     color: #F4BD76;
+    width: 50%;
     
 }
 
@@ -11,30 +12,14 @@
 }
 
 .ctm_img{
-    width: 540px;
+    width: 560px;
     height: 360px;
 }
 
-.card.foto{
-    height: 100%;
+
+.container{
     width: 100%;
-}
-
-.ctm-body {
-    height: 30%;
-    width: 30%;
-}
-
-.cmtcard{
-    /* padding: 20px; */
-    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
-    color: #F4BD76;
-}
-
-.cmtcard_v2{
-    padding: 20px;
-    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
-    color: #F4BD76;
-    width: 100%;
-    height: 76%;
+    height: auto;
+    display: flex !important;
+    flex-wrap: wrap;
 }

@@ -25,6 +25,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PayloadComponent } from './components/payload/payload.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { PayloadComponent } from './components/payload/payload.component';
     routingComponents,
     AddCanvaComponent,
     UpdateCanvaComponent,
-    PayloadComponent
+    PayloadComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

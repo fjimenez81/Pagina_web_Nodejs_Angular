@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { User } from "../models/user";
 import { Router } from "@angular/router";
@@ -14,6 +14,9 @@ export class UsersService {
 
   users: User[] = []
   selectedUser: User
+  status:boolean = false
+  //user_id: string = this.get_User_id()
+
 
   constructor(private http: HttpClient, private router: Router) { this.selectedUser = new User()}
 
@@ -38,6 +41,7 @@ export class UsersService {
   }
   log_out() {
     localStorage.removeItem('token')
+    localStorage.removeItem('user')
     this.router.navigate(['/login'])
   }
 
@@ -66,5 +70,14 @@ export class UsersService {
     }
     return aux
   }
+  get_name(): string {
+    const token = this.decode_token(this.get_token())
+    let aux: string = ""
 
+    for (let i = 0; i < token['name'].length; i++) {
+      aux += token['name'][i]
+    }
+    return aux
+
+  }
 }

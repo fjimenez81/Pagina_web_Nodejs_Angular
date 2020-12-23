@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from "../../services/users.service";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 
 
@@ -21,8 +22,9 @@ export class LoginComponent implements OnInit {
   loginUser(form: NgForm) {
     this.userLogin.log_in(form.value).subscribe(
       res => {
-        console.log(res)
         localStorage.setItem('token', res.token)
+        localStorage.setItem('user', this.userLogin.get_name())
+        NavbarComponent.updateUserStatus.next(true);
         form.reset()
         this.router.navigate([''])
       },
