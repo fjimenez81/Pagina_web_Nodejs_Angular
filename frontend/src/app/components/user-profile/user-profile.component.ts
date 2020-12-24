@@ -1,40 +1,59 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from "../../services/users.service";
-import { NavbarComponent } from "../navbar/navbar.component";
-import { UserProfileComponent } from "../user-profile/user-profile.component";
+import { ActivatedRoute, Router} from '@angular/router'
+import { User } from "../../models/user";
 import { NgForm } from "@angular/forms";
-import { Router} from '@angular/router'
 
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css']
 })
-export class RegisterComponent implements OnInit {
-
-
-
+export class UserProfileComponent implements OnInit {
 
   constructor(public userService: UsersService,
-             // private updateUser: UserProfileComponent,
-              private router: Router) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
+  
+  data: User = new User()
 
   ngOnInit(): void {
+    this.show_Users()
+    this.routing_User()
     
-    //this.getUsers()
   }
 
-
-  getUsers() {
+  show_Users() {
     this.userService.get_Users().subscribe(
-    (res) => {this.userService.users = res
-    },
-		err => console.error(err))
+      res => {
+        this.userService.users = res
+      }
+    )
+    for (let i = 0; i < this.userService.users.length; i++) {
+      if (this.userService.users[i]._id == this.userService.get_User_id()) {
+        this.data = this.userService.users[i]
+      } 
+    }
   }
 
-  addUser(form: NgForm) {
+  routing_User() {
+    const params = this.activatedRoute.snapshot.params
+    if(params._id){
+      this.userService.get_UserById(params._id).subscribe(
+        res => {
+          this.userService.selectedUser.name = res.name
+          this.userService.selectedUser.surname = res.surname
+          this.userService.selectedUser.address = res.address
+          this.userService.selectedUser.city = res.city
+          this.userService.selectedUser.email = res.email
+        }
+      )
+    }
+  }
+
+  update_User(form: NgForm) {
 
     if (!this.validate_Form(form))
       return
@@ -51,22 +70,25 @@ export class RegisterComponent implements OnInit {
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, register me!',
+      confirmButtonText: 'Yes, update it!',
       cancelButtonText: 'No, cancel!',
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
         swalWithBootstrapButtons.fire(
-          'Registered!',
-          'Now login in, please!'
+          'Updated!',
+          'Your file has been updated.',
+          'success'
         )
-        this.userService.create_User(form.value).subscribe(
-          res => {
-            form.reset()
-            this.router.navigate(['/login'])
-          },
-          err => console.error(err)
-        )
+        this.userService
+              .update_UserById(this.userService.get_User_id(), form.value)
+              .subscribe(
+                res => {
+                  console.log(res)
+                }
+              )
+        form.reset()
+        this.router.navigate(['/home'])
       } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel

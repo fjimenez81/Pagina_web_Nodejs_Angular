@@ -59,11 +59,13 @@ export const createUser = async (req, res) => {
 }
 
 export const getOnly_User = async (req, res) => {
-    const user = await User.findOne(req.params.name)
+    const user = await User.findById(req.params.id)
     res.send(user)
 }
 
 export const editUser = async (req, res) => {
+    if (req.body.password)
+        req.body.password = await User.encriptPassword(req.body.password)
     await User.findByIdAndUpdate(req.params.id, req.body)
     res.json({status: 'User updated!'})
 }

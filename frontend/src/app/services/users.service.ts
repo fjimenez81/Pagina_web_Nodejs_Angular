@@ -32,6 +32,10 @@ export class UsersService {
     return this.http.get<User>(this.URL_API + '/' + id)
   }
 
+  update_UserById(id: String, user: User) {
+    return this.http.put<User>(this.URL_API + '/' + id, user)
+  }
+
   log_in(user: User){
     return this.http.post<any>(this.URL_API + '/login', user)
   }

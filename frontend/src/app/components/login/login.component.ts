@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('user', this.userLogin.get_name())
         NavbarComponent.updateUserStatus.next(true);
         form.reset()
-        this.router.navigate([''])
+        this.router.navigate(['/home'])
       },
       err => console.error(err)
     )

@@ -1,13 +1,13 @@
 <header class="hero">
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" routerLink=""><h2 style="font-size: 48px;">Xelaj Göer <span class="mod-gold">Designs.</span></h2></a>
+        <a class="navbar-brand" routerLink="/home"><h2 style="font-size: 48px;">Xelaj Göer <span class="mod-gold">Designs.</span></h2></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav" style="font-size: 18px;">
-                <a class="p-5" style="color: #fff;" routerLink="">Home <span class="sr-only">(current)</span></a>
+                <a class="p-5" style="color: #fff;" routerLink="/home">Home <span class="sr-only">(current)</span></a>
                 <a class="p-5" style="color: #fff;" routerLink="/gallery">Gallery</a>
                 <ng-container *ngIf="!userService.status_login(); else loggedIn">
                     <a class="p-5" style="color: #fff;" routerLink="/login">LogIn</a>
@@ -18,7 +18,7 @@
                             <a class="p-5" style="cursor: pointer;color: #fff;" routerLink="/add-canva">Add</a>
                             <a class="p-5" style="cursor: pointer;color: #fff;" routerLink="/update-canva">Update</a>
                     </ng-container>
-                    <a class="p-5" style="color: #fff;" routerLink="/gallery">Hola {{name}}!</a>
+                    <a class="p-5" style="color: #fff;" [routerLink]="['/user-profile', id]">Hola {{name}}!</a>
                     <a class="p-5" style="cursor: pointer;color: #fff;" (click)="userService.log_out()">Logout</a>    
                 </ng-template>
             </div>

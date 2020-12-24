@@ -16,10 +16,7 @@ router.get('/:id', usersCtrl.getOnly_User)
 //             authJwt.isAdmin],
 //             usersCtrl.getOnly_User)
 
-router.put('/:id',
-            [authJwt.verifyToken,
-            authJwt.isUser],
-            usersCtrl.editUser)
+router.put('/:id', usersCtrl.editUser)
 
 router.delete('/:id',
                 [authJwt.verifyToken,

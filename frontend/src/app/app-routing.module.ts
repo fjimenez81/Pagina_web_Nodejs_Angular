@@ -8,11 +8,13 @@ import { RegisterComponent } from "./components/register/register.component";
 import { AddCanvaComponent } from "./components/add-canva/add-canva.component"
 import { UpdateCanvaComponent } from "./components/update-canva/update-canva.component";
 import { PayloadComponent } from './components/payload/payload.component';
+import { UserProfileComponent } from "./components/user-profile/user-profile.component";
 
 import { AuthGuard } from "./auth.guard";
+import { UserGuard } from "./user.guard";
 
 const routes: Routes = [
-  {path: '', component: FrontpageComponent},
+  {path: 'home', component: FrontpageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'contact', component: ContactComponent},
@@ -20,7 +22,10 @@ const routes: Routes = [
   {path: 'add-canva', component: AddCanvaComponent, canActivate: [AuthGuard]},
   {path: 'add-canva/edit/:_id', component: AddCanvaComponent, canActivate: [AuthGuard]},
   {path: 'update-canva', component: UpdateCanvaComponent, canActivate: [AuthGuard]},
-  {path: 'payload/:_id', component: PayloadComponent}
+  {path: 'user-profile/:_id', component: UserProfileComponent, canActivate: [UserGuard]},
+  {path: 'payload/:_id', component: PayloadComponent, canActivate: [UserGuard]},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -35,4 +40,5 @@ export const routingComponents = [FrontpageComponent,
                                   GalleryComponent,
                                   AddCanvaComponent,
                                   UpdateCanvaComponent,
-                                  PayloadComponent]
+                                  PayloadComponent,
+                                  UserProfileComponent]

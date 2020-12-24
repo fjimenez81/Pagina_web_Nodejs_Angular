@@ -105,7 +105,7 @@ export class AddCanvaComponent implements OnInit {
         )
         this.productService.update_Product(this.productService.selectedProduct._id, this.productService.selectedProduct).subscribe(
           res => {
-            console.log(res) 
+            //console.log(res) 
           }
         )
         form.reset()
@@ -135,7 +135,6 @@ export class AddCanvaComponent implements OnInit {
     if(params._id){
       this.productService.get_ProductById(params._id).subscribe(
         res => {
-          console.log(res)
           this.productService.selectedProduct = res
           this.edit = true
         }

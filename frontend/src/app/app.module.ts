@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 
 import { AuthGuard } from "./auth.guard";
+import { UserGuard } from "./user.guard";
 import { NgFallimgModule } from 'ng-fallimg';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { AddCanvaComponent } from './components/add-canva/add-canva.component';
@@ -26,6 +27,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PayloadComponent } from './components/payload/payload.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AddCanvaComponent,
     UpdateCanvaComponent,
     PayloadComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatButtonModule,
     FlexLayoutModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, UserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
